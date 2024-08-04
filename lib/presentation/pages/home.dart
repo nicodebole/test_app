@@ -24,43 +24,40 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 16),
-      child: BlocBuilder<ProductBloc, ProductState>(
-        builder: (context, state) {
-          if (state is ProductLoading) {
-            return const Loading();
-          } else if (state is ProductLoaded) {
-            return ListView(
-              shrinkWrap: true,
-              children: [
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16),
-                  child: Banner(),
+    return BlocBuilder<ProductBloc, ProductState>(
+      builder: (context, state) {
+        if (state is ProductLoading) {
+          return const Loading();
+        } else if (state is ProductLoaded) {
+          return ListView(
+            shrinkWrap: true,
+            children: [
+              const Padding(
+                padding: EdgeInsets.all(16),
+                child: Banner(),
+              ),
+              const SizedBox(height: 24),
+              _TitleWidget(
+                title: "New Arrival",
+                titlePadding: const EdgeInsets.symmetric(horizontal: 16),
+                child: ProductsCarousel(products: state.products),
+              ),
+              const SizedBox(height: 24),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: _TitleWidget(
+                  title: "Best seller",
+                  child: ProductList(products: state.products),
                 ),
-                const SizedBox(height: 24),
-                _TitleWidget(
-                  title: "New Arrival",
-                  titlePadding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: ProductsCarousel(products: state.products),
-                ),
-                const SizedBox(height: 24),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: _TitleWidget(
-                    title: "Best seller",
-                    child: ProductList(products: state.products),
-                  ),
-                ),
-              ],
-            );
-          } else if (state is ProductError) {
-            return Text('Error: ${state.message}');
-          } else {
-            return const Text("INITIAL");
-          }
-        },
-      ),
+              ),
+            ],
+          );
+        } else if (state is ProductError) {
+          return Text('Error: ${state.message}');
+        } else {
+          return const Text("INITIAL");
+        }
+      },
     );
   }
 }

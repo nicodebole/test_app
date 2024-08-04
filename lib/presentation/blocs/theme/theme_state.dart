@@ -20,8 +20,7 @@ class LightThemeState extends ThemeState {
           ThemeData.light().copyWith(
             scaffoldBackgroundColor: const Color(0xFFF3F3F3),
             colorScheme: ColorScheme.fromSeed(
-              seedColor: const Color(0xFF7D62ED),
-              secondary: const Color(0xFF53A2FE),
+              seedColor: Colors.deepPurple,
             ),
           ),
         );
@@ -34,8 +33,7 @@ class DarkThemeState extends ThemeState {
             scaffoldBackgroundColor: const Color.fromARGB(255, 42, 42, 42),
             colorScheme: ColorScheme.fromSeed(
               // seedColor: const Color(0xFFDEFC54),
-              seedColor: const Color(0xFF695ACD),
-              
+              seedColor: Colors.deepOrange,
               brightness: Brightness.dark,
             ),
           ),

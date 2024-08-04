@@ -6,7 +6,7 @@ import 'package:test_app/core/entities/product.dart';
 import 'package:test_app/core/entities/rating.dart';
 import 'package:test_app/dependency_injection/dependency_injection.dart';
 import 'package:test_app/presentation/blocs/theme/theme_bloc.dart';
-import 'package:test_app/presentation/router/router.dart';
+import 'package:test_app/config/router/router.dart';
 
 void main() async {
   await dotenv.load(fileName: ".env");

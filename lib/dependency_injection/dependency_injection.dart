@@ -1,7 +1,7 @@
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:test_app/config/config.dart';
 import 'package:test_app/core/entities/product.dart';
-import 'package:test_app/core/services/connectivity_service.dart';
+import 'package:test_app/services/connectivity_service.dart';
 import 'package:test_app/core/usecases/products/get_product_by_id.dart';
 import 'package:test_app/core/usecases/products/get_products.dart';
 import 'package:test_app/data/datasources/product_hive_datasource.dart';

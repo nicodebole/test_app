@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -163,11 +164,15 @@ class _CustomSliverAppBar extends StatelessWidget {
                 child: CachedNetworkImage(
                   imageUrl: product.image,
                   fit: BoxFit.cover,
-                  // loadingBuilder: (context, child, loadingProgress) {
-                  //   if (loadingProgress != null) return const SizedBox();
-
-                  //   return FadeIn(child: child);
-                  // },
+                  imageBuilder: (context, imageProvider) {
+                    return FadeIn(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          image: DecorationImage(image: imageProvider),
+                        ),
+                      ),
+                    );
+                  },
                 ),
               ),
               const CustomGradient(
@@ -175,10 +180,10 @@ class _CustomSliverAppBar extends StatelessWidget {
                 end: Alignment.bottomCenter,
                 colors: [
                   Colors.transparent,
-                  Colors.black87,
+                  Colors.black54,
                 ],
                 stops: [
-                  0.8,
+                  0.6,
                   1.0,
                 ],
               ),

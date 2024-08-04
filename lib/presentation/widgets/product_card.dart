@@ -49,11 +49,13 @@ class ProductCard extends StatelessWidget {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  Text(
-                    "\$${product.price}",
-                    // style: const TextStyle(fontWeight: FontWeight.bold),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text("\$${product.price}"),
+                      RatingWidget(rating: product.rating),
+                    ],
                   ),
-                  RatingWidget(rating: product.rating),
                 ],
               ),
             ),

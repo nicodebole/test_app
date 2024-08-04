@@ -1,6 +1,6 @@
 import 'package:test_app/core/entities/product.dart';
 import 'package:test_app/core/repositories/products/product_repository.dart';
-import 'package:test_app/core/services/connectivity_service.dart';
+import 'package:test_app/services/connectivity_service.dart';
 import 'package:test_app/data/datasources/product_hive_datasource.dart';
 import 'package:test_app/data/datasources/product_remote_datasource.dart';
 
