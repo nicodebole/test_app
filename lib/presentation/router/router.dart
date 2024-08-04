@@ -22,7 +22,7 @@ final GoRouter router = GoRouter(
             selectedIndex = 1;
             break;
           case "settings":
-            title = "settings";
+            title = "Settings";
             selectedIndex = 2;
             break;
           default:

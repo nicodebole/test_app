@@ -21,6 +21,7 @@ class LightThemeState extends ThemeState {
             scaffoldBackgroundColor: const Color(0xFFF3F3F3),
             colorScheme: ColorScheme.fromSeed(
               seedColor: const Color(0xFF7D62ED),
+              secondary: const Color(0xFF53A2FE),
             ),
           ),
         );
@@ -34,7 +35,8 @@ class DarkThemeState extends ThemeState {
             colorScheme: ColorScheme.fromSeed(
               // seedColor: const Color(0xFFDEFC54),
               seedColor: const Color(0xFF695ACD),
-              brightness: Brightness.dark
+              
+              brightness: Brightness.dark,
             ),
           ),
         );

@@ -28,12 +28,6 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => DependencyInjection.providePostBloc(),
-        ),
-        BlocProvider(
-          create: (context) => DependencyInjection.providePostByIdBloc(),
-        ),
-        BlocProvider(
           create: (context) => DependencyInjection.provideProductBloc(),
         ),
         BlocProvider(

@@ -1,4 +1,4 @@
-import 'package:animate_do/animate_do.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_app/core/entities/product.dart';
@@ -34,7 +34,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
             body: Loading(),
           );
         }
-    
+
         if (state is ProductByIdLoaded) {
           final product = state.product;
           return Scaffold(
@@ -52,7 +52,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
             ),
           );
         }
-    
+
         return const Scaffold(
           body: Placeholder(),
         );
@@ -77,71 +77,60 @@ class _ProductDetails extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Text(
-            //   product.title,
-            //   style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            // ),
-            // const SizedBox(height: 16),
-            Text.rich(
-              TextSpan(children: [
-                const TextSpan(
-                  text: "Description:\n",
-                  style: TextStyle(fontWeight: FontWeight.w700),
-                ),
-                TextSpan(
-                  text: product.description,
-                ),
-                TextSpan(
-                  text: product.description,
-                ),
-                TextSpan(
-                  text: product.description,
-                ),
-              ]),
+            Text(
+              product.title,
+              style: Theme.of(context)
+                  .textTheme
+                  .titleLarge
+                  ?.copyWith(fontWeight: FontWeight.bold),
+              overflow: TextOverflow.ellipsis,
+              maxLines: 2,
             ),
             const SizedBox(height: 16),
-            Text.rich(
-              TextSpan(children: [
-                const TextSpan(
-                  text: "Description:\n",
-                  style: TextStyle(fontWeight: FontWeight.w700),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "\$${(product.price.toStringAsFixed(2))}",
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 24),
                 ),
-                TextSpan(
-                  text: product.description,
-                ),
-                TextSpan(
-                  text: product.description,
-                ),
-                TextSpan(
-                  text: product.description,
-                ),
-              ]),
-            ),
-            const SizedBox(height: 16),
-            Text.rich(
-              TextSpan(children: [
-                const TextSpan(
-                  text: "Description:\n",
-                  style: TextStyle(fontWeight: FontWeight.w700),
-                ),
-                TextSpan(
-                  text: product.description,
-                ),
-                TextSpan(
-                  text: product.description,
-                ),
-                TextSpan(
-                  text: product.description,
-                ),
-              ]),
+                RatingWidget(rating: product.rating),
+              ],
             ),
             const SizedBox(height: 32),
-            Text(
-              "\$${(product.price.toStringAsFixed(2))}",
-              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+            Text.rich(
+              TextSpan(children: [
+                const TextSpan(
+                  text: "Description:\n",
+                  style: TextStyle(fontWeight: FontWeight.w700),
+                ),
+                TextSpan(
+                  text: "${product.description}\n\n",
+                ),
+                TextSpan(
+                  text: "${product.description}\n\n",
+                ),
+                TextSpan(
+                  text: "${product.description}\n\n",
+                ),
+                TextSpan(
+                  text: "${product.description}\n\n",
+                ),
+                TextSpan(
+                  text: "${product.description}\n\n",
+                ),
+                TextSpan(
+                  text: "${product.description}\n\n",
+                ),
+                TextSpan(
+                  text: "${product.description}\n\n",
+                ),
+                TextSpan(
+                  text: "${product.description}\n\n",
+                ),
+              ]),
             ),
-            const SizedBox(height: 16),
-            RatingWidget(rating: product.rating),
           ],
         ),
       ),
@@ -160,57 +149,53 @@ class _CustomSliverAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return SliverAppBar(
-      backgroundColor: Colors.black,
+      // backgroundColor: Colors.black,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       expandedHeight: size.height * 0.4,
       foregroundColor: Colors.white,
       flexibleSpace: FlexibleSpaceBar(
-        titlePadding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-        centerTitle: true,
-        title: Text(
-          product.title,
-          style: const TextStyle(
-            fontSize: 20,
-          ),
-          // textAlign: TextAlign.start,
-        ),
-        background: Stack(
-          children: [
-            SizedBox.expand(
-              child: Image.network(
-                product.image,
-                fit: BoxFit.cover,
-                loadingBuilder: (context, child, loadingProgress) {
-                  if (loadingProgress != null) return const SizedBox();
+        background: ClipRRect(
+          borderRadius:
+              const BorderRadius.vertical(bottom: Radius.circular(64)),
+          child: Stack(
+            children: [
+              SizedBox.expand(
+                child: CachedNetworkImage(
+                  imageUrl: product.image,
+                  fit: BoxFit.cover,
+                  // loadingBuilder: (context, child, loadingProgress) {
+                  //   if (loadingProgress != null) return const SizedBox();
 
-                  return FadeIn(child: child);
-                },
+                  //   return FadeIn(child: child);
+                  // },
+                ),
               ),
-            ),
-            const CustomGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-                Colors.transparent,
-                Colors.black87,
-              ],
-              stops: [
-                0.8,
-                1.0,
-              ],
-            ),
-            const CustomGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomCenter,
-              colors: [
-                Colors.black87,
-                Colors.transparent,
-              ],
-              stops: [
-                0.0,
-                0.3,
-              ],
-            ),
-          ],
+              const CustomGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Colors.transparent,
+                  Colors.black87,
+                ],
+                stops: [
+                  0.8,
+                  1.0,
+                ],
+              ),
+              const CustomGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Colors.black87,
+                  Colors.transparent,
+                ],
+                stops: [
+                  0.0,
+                  0.3,
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -218,7 +203,8 @@ class _CustomSliverAppBar extends StatelessWidget {
 }
 
 class CustomGradient extends StatelessWidget {
-  const CustomGradient({super.key, 
+  const CustomGradient({
+    super.key,
     required this.begin,
     required this.end,
     required this.colors,

@@ -1,16 +1,8 @@
-# test_app
+## test_app
 
-A new Flutter project.
+Se puede correr tanto en iOS como en Android.
+Se va a subir al repositorio un archivo .env con las variasbles de entorno para correr localmente (subir este archivo al repositorio no es lo correcto ya que almacena variables sensibles, pero solamente se suben por comodidad y para poder correr el proyecto localmente sin tener que hacer configuraciones).
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Pasos para correr la app:

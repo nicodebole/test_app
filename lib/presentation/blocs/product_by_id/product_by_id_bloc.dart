@@ -16,7 +16,6 @@ class ProductByIdBloc extends Bloc<ProductByIdEvent, ProductByIdState> {
   void _onLoadProductById(LoadProductById event, Emitter<ProductByIdState> emit) async {
     emit(ProductByIdLoading());
     try {
-      await Future.delayed(const Duration(milliseconds: 1000));
       final product = await getProductById.execute(event.id);
       emit(ProductByIdLoaded(product));
     } catch (e) {

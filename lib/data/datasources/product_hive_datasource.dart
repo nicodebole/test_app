@@ -11,7 +11,7 @@ class ProductHiveDatasource {
   }
 
   Product? getProductById(int id) {
-    return box.get({'id': id});
+    return box.get(id);
   }
 
   Future<void> saveProducts(List<Product> products) async {
