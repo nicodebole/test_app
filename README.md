@@ -26,11 +26,11 @@ Para seguir las buenas practicas de clean code y arquitectura hexagonal, se impl
 ## Getting Started
 
 Pasos para correr la app:
-- Clonar el repositorio
-git clone https://github.com/nicodebole/test-app.git
+- Clonar el repositorio:
+"git clone https://github.com/nicodebole/test_app.git"
 
 - Instalar dependencias:
-flutter pub get
+"flutter pub get"
 
 - Crea un archivo .env en la raíz del proyecto con las siguientes variables:
 PRODUCTS_BASE_URL=https://fakestoreapi.com
