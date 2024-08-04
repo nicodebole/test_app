@@ -14,9 +14,9 @@ class ProductList extends StatelessWidget {
         physics: const NeverScrollableScrollPhysics(),
         itemCount: products.length,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2, // number of items in each row
-          mainAxisSpacing: 10.0, // spacing between rows
-          crossAxisSpacing: 10.0, // spacing between columns
+          crossAxisCount: 2,
+          mainAxisSpacing: 10.0,
+          crossAxisSpacing: 10.0,
         ),
         itemBuilder: (context, index) {
           final product = products[index];

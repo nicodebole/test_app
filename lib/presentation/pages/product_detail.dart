@@ -150,7 +150,6 @@ class _CustomSliverAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return SliverAppBar(
-      // backgroundColor: Colors.black,
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       expandedHeight: size.height * 0.4,
       foregroundColor: Colors.white,

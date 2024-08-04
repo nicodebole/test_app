@@ -1,10 +1,5 @@
 part of 'theme_bloc.dart';
 
-// ThemeData _baseTheme = ThemeData(
-//   textTheme: GoogleFonts.plusJakartaSansTextTheme(),
-//   // Añade aquí otras propiedades comunes
-// );
-
 abstract class ThemeState extends Equatable {
   final ThemeData themeData;
 
@@ -32,7 +27,6 @@ class DarkThemeState extends ThemeState {
           ThemeData.dark().copyWith(
             scaffoldBackgroundColor: const Color.fromARGB(255, 42, 42, 42),
             colorScheme: ColorScheme.fromSeed(
-              // seedColor: const Color(0xFFDEFC54),
               seedColor: Colors.deepOrange,
               brightness: Brightness.dark,
             ),
