@@ -23,6 +23,17 @@ Para seguir las buenas practicas de clean code y arquitectura hexagonal, se impl
 - services: Contiene servicio de conectividad
     - connectivity_service: Clase que maneja el estado de conexión para offline access
 
+## Paquetes utilizados
+- flutter_bloc: Para la gestión del estado de la aplicación.
+- go_router: Para la navegación y el enrutamiento.
+- flutter_dotenv: Para manejar variables de entorno.
+- http: Para realizar peticiones HTTP.
+- hive: Para el almacenamiento local y el acceso sin conexión.
+- connectivity_plus: Para la validación de conexión del teléfono.
+- cached_network_image: Para manejar imagenes en caché.
+- bloc_test: Para implementación de unit test.
+- mocktail: Para facilitar los unit test.
+
 ## Getting Started
 
 Pasos para correr la app:
