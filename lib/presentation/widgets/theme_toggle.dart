@@ -9,13 +9,19 @@ class ThemeToggle extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ThemeBloc, ThemeState>(
       builder: (context, state) {
-        return IconButton(
-          onPressed: () {
-            context.read<ThemeBloc>().add(ToggleTheme());
-          },
-          icon: Icon(
-            state is DarkThemeState ? Icons.dark_mode : Icons.light_mode,
-          ),
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(state is LightThemeState ? "Light mode" : "Dark mode"),
+            IconButton(
+              onPressed: () {
+                context.read<ThemeBloc>().add(ToggleTheme());
+              },
+              icon: Icon(
+                state is DarkThemeState ? Icons.dark_mode : Icons.light_mode,
+              ),
+            ),
+          ],
         );
       },
     );

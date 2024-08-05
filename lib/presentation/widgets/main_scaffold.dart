@@ -1,30 +1,29 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:test_app/presentation/widgets/theme_toggle.dart';
 
 class BottomItem {
   BottomItem({
     required this.selectedIcon,
     required this.unselectedIcon,
     required this.route,
+    required this.title,
   });
 
   final IconData selectedIcon;
   final IconData unselectedIcon;
   final String route;
+  final String title;
 }
 
 class MainScaffold extends StatelessWidget {
   MainScaffold({
     super.key,
-    required this.title,
-    required this.selectedIndex,
+    required this.state,
     required this.child,
   });
 
-  final String title;
-  final int selectedIndex;
+  final GoRouterState state;
   final Widget child;
 
   final List<BottomItem> items = [
@@ -32,33 +31,32 @@ class MainScaffold extends StatelessWidget {
       selectedIcon: Icons.home,
       unselectedIcon: Icons.home_outlined,
       route: '/products',
-    ),
-    BottomItem(
-      selectedIcon: Icons.search,
-      unselectedIcon: Icons.search_outlined,
-      route: '/search',
+      title: "Home",
     ),
     BottomItem(
       selectedIcon: Icons.settings,
       unselectedIcon: Icons.settings_outlined,
       route: '/settings',
+      title: "Settings",
     ),
   ];
 
   @override
   Widget build(BuildContext context) {
+    final index = items.indexWhere((element) => element.route == state.fullPath);
+    final selectedItem = items[index];
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          title,
+          selectedItem.title,
           style: const TextStyle(fontWeight: FontWeight.bold),
         ),
-        actions: const [ThemeToggle()],
       ),
       bottomNavigationBar: BottomNavigationBar(
         showSelectedLabels: false,
         showUnselectedLabels: false,
-        currentIndex: selectedIndex,
+        currentIndex: index,
         onTap: (value) {
           context.go(items[value].route);
         },

@@ -182,7 +182,7 @@ class _CustomSliverAppBar extends StatelessWidget {
                   Colors.black54,
                 ],
                 stops: [
-                  0.6,
+                  0.7,
                   1.0,
                 ],
               ),

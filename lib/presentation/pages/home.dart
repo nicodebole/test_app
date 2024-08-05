@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
               _TitleWidget(
                 title: "New Arrival",
                 titlePadding: const EdgeInsets.symmetric(horizontal: 16),
-                child: ProductsCarousel(products: state.products),
+                child: ProductsCarousel(products: state.products.reversed.toList()),
               ),
               const SizedBox(height: 24),
               Padding(
