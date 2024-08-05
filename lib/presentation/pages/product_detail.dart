@@ -154,9 +154,12 @@ class _CustomSliverAppBar extends StatelessWidget {
       expandedHeight: size.height * 0.4,
       foregroundColor: Colors.white,
       flexibleSpace: FlexibleSpaceBar(
-        background: ClipRRect(
-          borderRadius:
-              const BorderRadius.vertical(bottom: Radius.circular(64)),
+        background: Container(
+          clipBehavior: Clip.antiAlias,
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.vertical(bottom: Radius.circular(64)),
+          ),
           child: Stack(
             children: [
               SizedBox.expand(
