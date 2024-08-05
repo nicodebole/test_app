@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_app/presentation/blocs/theme/theme_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ThemeToggle extends StatelessWidget {
   const ThemeToggle({super.key});
@@ -12,7 +13,7 @@ class ThemeToggle extends StatelessWidget {
         return Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(state is LightThemeState ? "Light mode" : "Dark mode"),
+            Text(state is LightThemeState ? AppLocalizations.of(context)!.lightMode : AppLocalizations.of(context)!.darkMode),
             IconButton(
               onPressed: () {
                 context.read<ThemeBloc>().add(ToggleTheme());

@@ -1,0 +1,10 @@
+{
+    "@@locale": "en",
+    "home": "Home",
+    "settings": "Settings",
+    "newArrival": "New Arrival",
+    "bestSeller": "Best Seller",
+    "specialSale": "Special Sale\nup to 60%",
+    "lightMode": "Light mode",
+    "darkMode": "Dark mode"
+}

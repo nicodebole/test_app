@@ -7,6 +7,7 @@ import 'package:test_app/presentation/pages/product_detail.dart';
 import 'package:test_app/presentation/widgets/loading.dart';
 import 'package:test_app/presentation/widgets/product_card.dart';
 import 'package:test_app/presentation/widgets/product_list.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -38,15 +39,16 @@ class _HomePageState extends State<HomePage> {
               ),
               const SizedBox(height: 24),
               _TitleWidget(
-                title: "New Arrival",
+                title: AppLocalizations.of(context)!.newArrival,
                 titlePadding: const EdgeInsets.symmetric(horizontal: 16),
-                child: ProductsCarousel(products: state.products.reversed.toList()),
+                child: ProductsCarousel(
+                    products: state.products.reversed.toList()),
               ),
               const SizedBox(height: 24),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: _TitleWidget(
-                  title: "Best seller",
+                  title: AppLocalizations.of(context)!.bestSeller,
                   child: ProductList(products: state.products),
                 ),
               ),
@@ -159,9 +161,9 @@ class Banner extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(16),
             alignment: Alignment.centerLeft,
-            child: const Text(
-              "Special Sale\nup to 60%",
-              style: TextStyle(
+            child: Text(
+              AppLocalizations.of(context)!.specialSale,
+              style: const TextStyle(
                   color: Colors.white,
                   fontSize: 20,
                   fontWeight: FontWeight.bold,

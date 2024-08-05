@@ -1,0 +1,10 @@
+{
+    "@@locale": "es",
+    "home": "Inicio",
+    "settings": "Ajustes",
+    "newArrival": "Novedades",
+    "bestSeller": "Más vendido",
+    "specialSale": "Rebajas especiales\nhasta el 60%",
+    "lightMode": "Modo claro",
+    "darkMode": "Modo oscuro"
+}

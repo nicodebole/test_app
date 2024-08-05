@@ -33,6 +33,7 @@ Para seguir las buenas practicas de clean code y arquitectura hexagonal, se impl
 - cached_network_image: Para manejar imagenes en caché.
 - bloc_test: Para implementación de unit test.
 - mocktail: Para facilitar los unit test.
+- flutter_localizations: Para la implementación de soporte para múltiples idiomas
 
 ## Getting Started
 

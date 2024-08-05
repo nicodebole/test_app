@@ -7,6 +7,7 @@ import 'package:test_app/core/entities/rating.dart';
 import 'package:test_app/dependency_injection/dependency_injection.dart';
 import 'package:test_app/presentation/blocs/theme/theme_bloc.dart';
 import 'package:test_app/config/router/router.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() async {
   await dotenv.load(fileName: ".env");
@@ -43,6 +44,8 @@ class MyApp extends StatelessWidget {
             title: 'Test App',
             theme: state.themeData,
             routerConfig: router,
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
           );
         },
       ),
